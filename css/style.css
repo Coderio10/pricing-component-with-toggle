@@ -1,0 +1,224 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+:root{
+    --VeryLightGrayishBlue: hsl(240, 78%, 98%);
+    --LightGrayishBlue: hsl(234, 14%, 74%);
+    /* --GrayishBlue: hsl(233, 13%, 49%); */
+    --GrayishBlue: hsl(234, 79%, 70%);
+    --DarkGrayishBlue: hsl(232, 13%, 33%);
+    --white: #ffffff
+}
+body{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(../images/bg-top.svg), url(../images/bg-bottom.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: right top, left bottom;
+    background-size: 300px , auto;
+    font-weight: 700;
+    background-color: var(--VeryLightGrayishBlue);
+}
+main{
+    width: 850px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    flex-flow: row nowrap;
+    /* border: 1px solid saddlebrown; */
+    gap: 10px;
+}
+hr{
+    background-color: var(--LightGrayishBlue);
+    opacity: 0.2;
+}
+.col{
+    /* border: 1px solid black; */
+    text-align: center;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 1px 1px 20px 1px var(--LightGrayishBlue);
+    width: 33.33%;
+}
+/* checkbox styling */
+.box{
+    display: flex;
+    margin: 10px;
+}
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+}
+.switch input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--GrayishBlue);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.slider::before{
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked + .slider{
+    background-color: var(--GrayishBlue); 
+}
+input:focus + .slider{
+    box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider::before{
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+.slider.round {
+    border-radius: 34px;
+}  
+.slider.round:before {
+    border-radius: 50%;
+}
+/* typography */
+h1{
+    color: var(--DarkGrayishBlue);
+    opacity: 0.8;
+    font-size: 32px;
+    text-align: center;
+    padding-top: 30px;
+}
+h2{
+    font-size: 18px;
+    color: var(--DarkGrayishBlue);
+    padding: 10px;
+}
+h3{
+    color: var(--DarkGrayishBlue);
+    padding: 10px;
+    font-size: 48px;
+}
+p{
+    font-size: 15px;
+    color: var(--DarkGrayishBlue);
+    padding: 10px;
+}
+/* button */
+button{
+    height: 35px;
+    width: 100%;
+    margin-top: 20px;
+    padding: 0px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--VeryLightGrayishBlue);
+    background-color: var(--GrayishBlue);
+    border-style: none;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: initial;
+    cursor: pointer;
+    color: var(--GrayishBlue);
+    border: 1px solid var(--GrayishBlue);
+}
+/* column 1 */
+.col:first-child{
+    background-color: var(--white);
+    height: 350px;
+    margin: 15px -20px 10px 0px;
+}
+/* column  3 */
+.col:nth-child(3){
+    background-color: var(--white);
+    height: 350px;
+    margin: 15px 0px 10px -20px;
+}
+
+/* column 2 */
+.col:nth-child(2){
+    background-color: var(--GrayishBlue);
+    color: white;
+    z-index: 1000;
+    height: 380px; 
+}
+/* column 2 typography */
+.col:nth-child(2) h2, .col:nth-child(2) h3,.col:nth-child(2) p{
+    color: white;  
+    padding: 12px; 
+}
+.col:nth-child(2) button{
+    background-color: var(--VeryLightGrayishBlue);
+    color: var(--GrayishBlue); 
+}
+.col:nth-child(2) button:hover{
+    background-color: inherit;
+    color: var(--white);
+    border: 1px solid var(--white); 
+}
+.col:nth-child(2) hr{
+    color: var(--VeryLightGrayishBlue);
+}
+@media  (max-width: 850px) {
+    *{
+        font-size: 12px;
+    }
+    h1{
+        font-size: initial;
+    }
+    h2{
+        font-size: 18px;
+    }
+    h3{
+        font-size: 32px;
+    }
+    main{
+        width: 95%;
+    }
+}
+@media (max-width: 600px) {
+    main{
+        flex-flow: column nowrap;
+        width: 100%;
+    }
+    h1{
+        font-size: 24px;
+    }
+    .col{
+        width: 80%;
+    }
+    /* column 1 */
+    .col:first-child{
+        background-color: var(--white);
+        height: 350px;
+        margin: 10px;
+    }
+    /* column  3 */
+    .col:nth-child(3){
+        background-color: var(--white);
+        height: 350px;
+        margin: 10px;
+    }
+}
